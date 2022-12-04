@@ -1,10 +1,17 @@
+import java.util.Comparator;
+
 public abstract  class Animal {
     private String name;
-    private int id;
+    private String id;
 
-    public Animal(String name, int id) {
+
+    private static int idCount = 0;
+
+    static String[] names ={"random1","random2","random3"};
+    public Animal(String name) {
         this.name = name;
-        this.id = id;
+        this.id ="ANMl " + idCount;
+        idCount++;
     }
     public Animal() {
     }
@@ -17,14 +24,27 @@ public abstract  class Animal {
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id = "ANMl " + id;
     }
 
-    public abstract void death();
+
+
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                "," + this.getClass() +
+                '}';
+    }
+
+
+
 }
 

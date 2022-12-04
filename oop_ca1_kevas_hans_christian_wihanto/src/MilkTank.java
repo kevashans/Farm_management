@@ -1,10 +1,19 @@
-public class MilkTank {
+public class MilkTank extends Equipment {
     private int capacity;
-    private double content;
+    private String name;
+    private double content = 0;
 
-    public MilkTank(int capacity) {
+    public MilkTank(String name,int capacity,String type) {
+        super(type);
+        this.capacity = capacity;
+        this.name = name;
+
+    }
+
+    public MilkTank( int capacity) {
         this.capacity = capacity;
     }
+
     public MilkTank() {
         this.capacity = 2000;
     }
@@ -15,6 +24,9 @@ public class MilkTank {
 
     public void addToTank(int liters) {
         this.content += liters;
+        if (this.content + liters > this.capacity){
+            this.content = this.capacity;
+        }
     }
     public double freeSpace(){
         return this.capacity - this.content;
@@ -28,6 +40,7 @@ public class MilkTank {
         return "MilkTank{" +
                 "capacity=" + capacity +
                 ", content=" + content +
+                ", type=" + super.getType()+
                 '}';
     }
 }
