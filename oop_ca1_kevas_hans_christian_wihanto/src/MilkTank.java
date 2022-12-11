@@ -1,10 +1,10 @@
-public class MilkTank extends Equipment {
+public class MilkTank  {
     private int capacity;
     private String name;
     private double content = 0;
 
-    public MilkTank(String name,int capacity,String type) {
-        super(type);
+    public MilkTank(String name,int capacity) {
+
         this.capacity = capacity;
         this.name = name;
 
@@ -28,6 +28,19 @@ public class MilkTank extends Equipment {
             this.content = this.capacity;
         }
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getContent() {
+        return content;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public double freeSpace(){
         return this.capacity - this.content;
     }
@@ -35,12 +48,16 @@ public class MilkTank extends Equipment {
         this.content = 0;
     }
 
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
     @Override
     public String toString() {
-        return "MilkTank{" +
+        return "{" +
                 "capacity=" + capacity +
+                ", name='" + name + '\'' +
                 ", content=" + content +
-                ", type=" + super.getType()+
                 '}';
     }
 }

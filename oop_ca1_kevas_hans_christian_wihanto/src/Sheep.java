@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class Sheep extends Animal implements Comparable<Sheep>{
+public class Sheep extends Animal implements NonMilkable, Comparable<NonMilkable>{
     private double weight;
     private int age;
     private String pedigree;
@@ -13,27 +13,17 @@ public class Sheep extends Animal implements Comparable<Sheep>{
     }
 
     public Sheep() {
-
     }
-
-    public double getWeight() {
-        return weight;
-    }
-
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public int getAge() {
-        return age;
-    }
 
     public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getPedigree() {
-        return pedigree;
+        if (age < 0){
+            this.age = 0;
+        }else{
+        this.age = age;}
     }
 
     public void setPedigree(String pedigree) {
@@ -41,24 +31,43 @@ public class Sheep extends Animal implements Comparable<Sheep>{
     }
 
 
-
     @Override
     public String toString() {
-        return "Sheep{" +
-                "weight=" + weight +
+        return "Sheep{" +"name=" + super.getName() +
+                ", weight=" + weight +
                 ", age=" + age +
                 ", pedigree='" + pedigree + '\'' +
                 '}';
     }
 
     @Override
-    public int compareTo(Sheep o) {
-        int i = pedigree.compareTo(o.pedigree);
+    public int compareTo(NonMilkable o) {
+        int i = Double.compare(this.weight, o.getWeight());
         if (i != 0) return i;
 
-        i = Double.compare(this.weight, o.weight);
+        i = Double.compare(this.getAge(), o.getAge());
         if (i != 0) return i;
 
-        return Integer.compare(age, o.age);
+//         i = pedigree.compareTo(o.getPedigree());
+//        if (i != 0) return i;
+
+
+
+        return pedigree.compareTo(o.getPedigree());
+    }
+
+    @Override
+    public double getWeight() {
+        return this.weight;
+    }
+
+    @Override
+    public int getAge() {
+        return this.age;
+    }
+
+    @Override
+    public String getPedigree() {
+        return this.pedigree;
     }
 }

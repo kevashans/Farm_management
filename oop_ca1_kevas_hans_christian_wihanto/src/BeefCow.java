@@ -1,6 +1,7 @@
-import java.util.Comparator;
 
-public class BeefCow extends Animal implements Comparable<BeefCow>{
+import java.util.Objects;
+
+public class BeefCow extends Animal implements NonMilkable, Comparable<NonMilkable>{
     private double weight;
     private int age;
     private String pedigree;
@@ -19,25 +20,22 @@ public class BeefCow extends Animal implements Comparable<BeefCow>{
         this.pedigree = pedigree;
     }
 
-    public double getWeight() {
-        return weight;
-    }
+
 
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public int getAge() {
-        return age;
-    }
+
 
     public void setAge(int age) {
-        this.age = age;
+        if (age < 0){
+            this.age = 0;
+        }else{
+            this.age = age;}
     }
 
-    public String getPedigree() {
-        return pedigree;
-    }
+
 
     public void setPedigree(String pedigree) {
         this.pedigree = pedigree;
@@ -45,28 +43,59 @@ public class BeefCow extends Animal implements Comparable<BeefCow>{
 
 
 
+
+
     @Override
-    public int compareTo(BeefCow o) {
-        int i = pedigree.compareTo(o.pedigree);
-        if (i != 0) return i;
-
-        i = Double.compare(this.weight, o.weight);
-        if (i != 0) return i;
-
-        return Integer.compare(age, o.age);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BeefCow beefCow = (BeefCow) o;
+        return Double.compare(beefCow.weight, weight) == 0 && age == beefCow.age && Objects.equals(pedigree, beefCow.pedigree);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(weight, age, pedigree);
     }
 
     @Override
     public String toString() {
-        return "BeefCow{" +
-                "weight=" + weight +
+        return "BeefCow{" +"name=" + super.getName() +
+                ", weight=" + weight +
                 ", age=" + age +
                 ", pedigree='" + pedigree + '\'' +
                 '}';
+    }
+
+    //ranking weight, age, pedigree
+    @Override
+    public int compareTo(NonMilkable o) {
+        int i = Double.compare(this.weight, o.getWeight());
+        if (i != 0) return i;
+
+         i = Double.compare(this.getAge(), o.getAge());
+        if (i != 0) return i;
+
+//         i = pedigree.compareTo(o.getPedigree());
+//        if (i != 0) return i;
+
+
+
+        return pedigree.compareTo(o.getPedigree());
+    }
+
+    @Override
+    public double getWeight() {
+        return this.weight;
+    }
+
+    @Override
+    public int getAge() {
+        return this.age;
+    }
+
+    @Override
+    public String getPedigree() {
+        return this.pedigree;
     }
 }

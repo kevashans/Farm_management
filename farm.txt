@@ -1,16 +1,23 @@
 Joe 3 
-TankG 1234 DairyCow 
-TankC 2345 Goat
-3 
-daisy 345 23 xxx 
-daisy 
-Baa 345 23 xxx
-DairyCow 
-2 
-Bob 345 23 xxx
-Baam 345 23 xxx
-3 
-Bro 345 23 xxx 
-daisy 
-Mbaa 345 23 xxx
-Goat
+TankG 1234  
+TankC 2345 
+TankCZ 1000 
+TankFZ 1000 
+5
+BeefCow bigcow 345 23 xxx
+DairyCow daisy
+DairyCow Jorge
+DairyCow Emma
+Sheep mbaam 100 19 xxx
+4
+BeefCow Bob 345 23 xxx
+Sheep Baam 120 25 xxy
+BeefCow Bro 347 10 xxy
+BeefCow Bro 245 11 xxy
+6
+BeefCow Bro 345 23 xxx 
+DairyCow daisy 
+Sheep Mbaa 345 23 xxx
+Goat Goaty
+Goat Jordan
+Goat Katy

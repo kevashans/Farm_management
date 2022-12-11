@@ -13,7 +13,7 @@ public class Farm {
         idCount++;
     }
     public Farm() {
-
+        this.sheds = new ArrayList<>();
     }
 
     public int getId() {
@@ -49,5 +49,10 @@ public class Farm {
     }
     public void deleteShed(Shed shed){
         this.sheds.remove(shed);
+    }
+    public void milkAll(){
+        for (int i = 0; i<this.sheds.size();i++){
+            this.getShed(i).milkAllAnimal();
+        }
     }
 }

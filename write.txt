@@ -1,0 +1,22 @@
+Joe 3
+TankG 1234
+TankCZ 1000
+TankC 2345
+5
+class BeefCow bigcow 345.0 23 xxx
+DairyCow daisy
+DairyCow Jorge
+DairyCow Emma
+class Sheep mbaam 100.0 19 xxx
+4
+class BeefCow Bob 345.0 23 xxx
+class Sheep Baam 120.0 25 xxy
+class BeefCow Bro 347.0 10 xxy
+class BeefCow Bro 245.0 11 xxy
+6
+class BeefCow Bro 345.0 23 xxx
+DairyCow daisy
+class Sheep Mbaa 345.0 23 xxx
+Goat Goaty
+Goat Jordan
+Goat Katy

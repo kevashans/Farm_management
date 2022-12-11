@@ -1,0 +1,5 @@
+each shed have tanks depending on the animal inside
+if there are two milkables the shed have tanks for each type of milkables
+if there is one type of milkable ther is only one tank inside the shed
+
+milking machine could be linked into two tanks and can be used with any type of milkable
